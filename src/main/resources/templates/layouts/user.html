@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="https://kit.fontawesome.com/8deb314de0.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/animation.css}" />
+<link rel="stylesheet" th:href="@{/css/toastr.css}" />
+<link rel="stylesheet" th:href="@{/css/toastr.min.css}" />
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+	rel="stylesheet" />
+<script
+	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<script th:src="@{/js/toastr.js}"></script>
+
+	<script th:src="@{/js/message.js}"></script>
+<title>Document</title>
+</head>
+
+<body>
+	<section class="section-1">
+		<div class="header">
+			<div class="header-index">
+				<div class="header-top">
+					<div class="container flex-right">
+						<div class="header_div-icon">
+							<i class="fa-solid fa-magnifying-glass fa-rotate-90"></i>
+						</div>
+						<div class="header_div-icon dropdown-hover">
+							<i class="fa-solid fa-user"></i> <i
+								class="fa-solid fa-caret-down"></i>
+							<div class="dropdown-content">
+								<a href="#">Đăng ký</a> <a href="#">Đăng nhập</a>
+							</div>
+						</div>
+						<div class="header_div-icon">
+							<i class="fa-solid fa-cart-shopping"></i> <span
+								class="order-quantity">2</span>
+						</div>
+					</div>
+				</div>
+				<div class="header-menu">
+					<div class="container">
+						<div class="menu">
+							<div class="menu-link flex-between">
+								<div class="menu-left flex-between menu-nav">
+									<div class="link">
+										<a th:href="@{/}" class="nav-link">Trang chủ</a>
+									</div>
+
+
+									<div class="link dropdown-hover">
+										<i class="fa-solid fa-paw"></i> Sản phẩm <i
+											class="fa-solid fa-caret-down"></i>
+										<div class="dropdown-content"
+											th:each="category: ${categories}">
+											<a href="" th:text="${category.name}">Thức ăn cho chó</a>
+										</div>
+									</div>
+
+									<div class="link"><a th:href="@{/service}"><i class="fa-solid fa-paw"></i>Bảng giá</a></div>
+							</div>
+							<div class="menu-center link">
+								<a href=""><img
+									src="	https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/logo.png?1676276556806"
+									class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+									alt="" /></a>
+							</div>
+							<div class="menu-right flex-between menu-nav">
+								<div class="link">
+									<a th:href="@{/new}" class="nav-link">Tin thú cưng</a>
+								</div>
+								<div class="link">
+									<i class="fa-solid fa-paw"></i> <a th:href="@{/booking}" class="nav-link">
+										Đặt lịch </a>
+								</div>
+								<div class="link">
+									<i class="fa-solid fa-paw"></i> <a th:href="@{/contact}" class="nav-link">
+										Liên hệ </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<img
+			src="https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/breadcrumb.png?1665454509075"
+			alt="" />
+		</div>
+		<img src="http://localhost:8080/api/files/images.jpg" alt="" />
+	</section>
+
+	<main class="main" layout:fragment="content"></main>
+
+	<footer>
+		<div class="footer-container"
+			style="background-repeat: no-repeat; background-image: url('https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/bg-footer.png?1676276556806');">
+			<a href="#" class="logo"><img
+				src="https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/logo-footer.png?1676276556806"
+				alt="" /></a>
+			<div class="nav-bar">
+				<a href="#">Trang chủ</a> <a href="#">Sản phẩm</a> <a href="#">Bảng
+					giá</a> <a href="#">Tin thú cưng</a> <a href="#">Đặt lịch </a> <a
+					href="#">Liên hệ</a>
+			</div>
+			<div class="contact">
+				<a href="#"><i class="fa-brands fa-facebook"></i></a> <a href="#"><i
+					class="fa-brands fa-instagram"></i></a> <a href="#"><i
+					class="fa-brands fa-twitter"></i></a> <a href="#"><i
+					class="fa-brands fa-tiktok"></i></a> <a href="#"><i
+					class="fa-brands fa-youtube"></i></a>
+			</div>
+			<div class="copyright">&copy;Bản quyền thuộc về Cao Hữu Hiếu |
+				Cung cấp bởi Cao Hữu Hiếu</div>
+		</div>
+	</footer>
+</body>
+</html>

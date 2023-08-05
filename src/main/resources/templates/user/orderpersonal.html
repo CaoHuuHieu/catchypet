@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Document</title>
+  </head>
+
+  <body>
+     <main class="main" layout:fragment="content">
+      <div class="container">
+        <div class="user-container">
+          <div class="user-left">
+            <h4>TRANG TÀI KHOẢN</h4>
+            <p>
+              <strong>Xin chào, <span class="name">Lee Minh Hoo</span>!</strong>
+            </p>
+            <div class="user-link">
+              <a href="#">Thông tin tài khoản</a>
+              <a href="#">Đơn hàng của bạn</a>
+              <a href="#">Đổi mật khẩu</a>
+              <a href="#">Số địa chỉ</a>
+            </div>
+          </div>
+          <div class="user-right">
+            <h4>ĐƠN HÀNG CỦA BẠN</h4>
+            <table>
+              <tr>
+                <th>Đơn hàng</th>
+                <th>Ngày</th>
+                <th>Địa chỉ</th>
+                <th>Giá trị đơn hàng</th>
+                <th>TT thanh toán</th>
+              </tr>
+              <tr>
+                <td>9999999</td>
+                <td>12/12/2023</td>
+                <td>Phường đông giang, triệu giang, triệu phong, quảng trị</td>
+                <td>200.000vnđ</td>
+                <td>Chưa thanh toán</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+</head>
+
+<body>
+ 
+    <main class="main" layout:fragment="content">
+        <div class="container">
+            <div class="user-container">
+                <div class="user-left">
+                    <h4>TRANG TÀI KHOẢN</h4>
+                    <p>
+                        <strong>Xin chào, <span class="name">Lee Minh Hoo</span>!</strong>
+                    </p>
+                    <div class="user-link">
+                        <a href="#">Thông tin tài khoản</a>
+                        <a href="#">Đơn hàng của bạn</a>
+                        <a href="#">Đổi mật khẩu</a>
+                        <a href="#">Số địa chỉ</a>
+                    </div>
+                </div>
+                <div class="user-right">
+                    <h4>ĐỊA CHỈ CỦA BẠN</h4>
+                    <button class="btnadd">Thêm địa chỉ</button>
+                    <div class="address-list">
+                        <div class="address-item">
+                            <p><strong>Họ tên:</strong> Cao Hữu Hiếu
+                                <span>Đặt làm mặc định</span>
+                            </p>
+                            <p><strong>Địa chỉ:</strong> Trà liên đông, Triệu Giang, Triệu phong, Quảng Trị, Việt Nam</p>
+                            <p><strong>Số điện thoại:</strong> 0943247387</p>
+                            <a href="#">Chỉnh sửa địa chỉ</a>
+                        </div>
+                        <div class="address-item">
+                            <p><strong>Họ tên:</strong> Cao Hữu Hiếu
+                                <p>Đặt làm mặc định</p>
+                            </p>
+                            <p><strong>Địa chỉ:</strong> Trà liên đông, Triệu Giang, Triệu phong, Quảng Trị, Việt Nam</p>
+                            <p><strong>Số điện thoại:</strong>0943247387</p>
+                            <a href="#">Chỉnh sửa địa chỉ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <div class="popup-container">
+        <div class="popup_overlay"></div>
+        <form action="">
+            <h4 class="heading">THÊM MỚI ĐỊA CHỈ</h4>
+            <div class="form-input">
+                <p>Họ tên<span>*</span></p>
+                <input type="text" placeholder="Họ và tên" />
+            </div>
+            <div class="form-input">
+                <p>Số điện thoại<span>*</span></p>
+                <input type="text" placeholder="Số điện thoại" />
+            </div>
+            <div class="form-input">
+                <p>Địa chỉ<span>*</span></p>
+                <input type="text" placeholder="Địa chỉ cụ thể" />
+            </div>
+            <div class="form-input address-select">
+                <div>
+                    <p>Tỉnh thành<span>*</span></p>
+                    <select name="cars" id="cars">
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+                </div>
+                <div>
+                    <p>Quận huyện<span>*</span></p>
+                    <select name="cars" id="cars">
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+                </div>
+                <div>
+                    <p>Phường xã<span>*</span></p>
+                    <select name="cars" id="cars">
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                        </select>
+                </div>
+            </div>
+            <div class="form-input button">
+                <input type="button" class="cancel" value="Hủy" />
+                <input type="submit" value="Thêm mới địa chỉ" />
+            </div>
+            <button class="close"><i class="fa-solid fa-xmark xmark"></i></button>
+        </form>
+    </div>
+</body>
+
+</html>

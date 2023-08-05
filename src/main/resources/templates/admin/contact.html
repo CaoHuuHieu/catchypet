@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+
+<body>
+
+	<div class="content" layout:fragment="content">
+		<div class="contact">
+			<h1>DANH SÁCH DỊCH VỤ</h1>
+			<div class="btn-container">
+				<a href="#" class="btnadd">Thêm mới</a>
+			</div>
+			<div>
+				<table>
+					<tr>
+						<th>No.</th>
+						<th>Thông tin người gửi</th>
+						<th>Chủ đề</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr>
+						<td class="textcenter">1</td>
+						<td>
+							<p>
+								<strong>Cao Hữu Hiếu</strong>
+							</p>
+							<p>caohuuhieu12b8@gmail.com</p>
+							<p>09433545543</p>
+						</td>
+						<td>Mày cho tao cái địa chỉ tao đánh cả lò nhà mày</td>
+						<td class="textcenter"><a href="#" title="Chi tiết"> <i
+								class="fa-solid fa-list"></i></a> <a href="#" title="Xóa"><i
+								class="fa-solid fa-trash"></i></a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="popup-container">
+			<div class="popup_overlay"></div>
+			<form action="">
+				<h4 class="heading">THÔNG TIN LIÊN HỆ</h4>
+				<div class="form-input">
+					<p>Họ tên</p>
+					<input type="text" />
+				</div>
+				<div class="form-input">
+					<p>Số điện thoại</p>
+					<input type="text" />
+				</div>
+				<div class="form-input">
+					<p>Email</p>
+					<input type="text" />
+				</div>
+				<div class="form-input">
+					<p>Nội dung</p>
+					<textarea placeholder="Nội dung:"></textarea>
+				</div>
+				<div class="form-input button">
+					<input type="button" class="cancel" value="Quay lại" /> <input
+						type="submit" value="Phản hổi" />
+				</div>
+				<button class="close">
+					<i class="fa-solid fa-xmark xmark"></i>
+				</button>
+			</form>
+		</div>
+
+		<div class="popup-container">
+			<div class="popup_overlay"></div>
+			<form action="">
+				<h4 class="heading">PHẢN HỒI</h4>
+				<div class="form-input">
+					<p>Chủ đề</p>
+					<input type="text" />
+				</div>
+				<div class="form-input">
+					<p>Nội dung</p>
+					<textarea placeholder="Nội dung:"></textarea>
+				</div>
+				<div class="form-input button">
+					<input type="button" class="cancel" value="Quay lại" /> <input
+						type="submit" value="Gửi" />
+				</div>
+				<button class="close">
+					<i class="fa-solid fa-xmark xmark"></i>
+				</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

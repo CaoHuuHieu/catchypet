@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+	rel="stylesheet" />
+<style>
+p {
+	margin: 0;
+}
+</style>
+</head>
+
+
+<body>
+
+	<div class="content new_container" layout:fragment="content">
+		<div th:if="${session.message}">
+			<script th:inline="text">
+				showMessage("[[${session.message.text}]]",
+						"[[${session.message.state}]]");
+			</script>
+			<div th:text="${@session.removeSession()}"></div>
+	</div>
+	<form th:action="@{/admin/new}" th:method="post" th:object="${newDto}" enctype="multipart/form-data"> 
+			<h1 th:if="${newDto.id != null}">CẬP NHẬT BÀI VIẾT</h1>
+			<h1 th:if="${newDto.id == null}">THÊM MỚI BÀI VIẾT</h1>
+			<div class="form-input">
+				<p>Tiêu đề</p>
+				<input type="text" th:field="*{heading}"/>
+			</div>
+			<div class="form-input">
+				<p>Mô tả ngắn</p>
+				<input type="text" th:field="*{shortDescription}" />
+			</div>
+			<div class="form-input">
+				<p>Ảnh hiển thị</p>
+				<input type="file" name="file"/>
+			</div>
+			<div>
+				<p>Nội dung</p>
+				<textarea type="text" rows="20" id="content" 
+					autocomplete="off" th:field="*{content}"></textarea>
+			</div>
+			<div class="form-input">
+				<input type="hidden" th:field="*{id}" />
+			</div>
+			<div class="form-input button">
+				<a th:href="@{/admin/new}" class="cancel">Quay lại</a> <input
+					th:if="${newDto.id == null}" type="submit" value="Thêm mới" /> <input
+					th:unless="${newDto.id == null}" type="submit" value="Cập nhật" />
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

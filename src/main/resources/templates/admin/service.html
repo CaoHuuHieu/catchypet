@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+
+<body>
+
+	<div class="content" layout:fragment="content">
+		<div class="service">
+			<h1>DANH SÁCH DỊCH VỤ</h1>
+			<div class="btn-container">
+				<a th:href="@{/admin/service/add}" class="btnadd">Thêm mới</a>
+			</div>
+
+			<div th:if="${session.message}">
+				<script th:inline="text">
+					showMessage("[[${session.message.text}]]",
+							"[[${session.message.state}]]");
+				</script>
+				<div th:text="${@session.removeSession()}"></div>
+			</div>
+
+
+			<div th:if="${services.size == 0}" class="no-content">
+				<table>
+					<tr>
+						<th>No.</th>
+						<th>Tên dịch vụ</th>
+						<th>Giá cả</th>
+						<th>Hiển thị</th>
+						<th>Thao tác</th>
+					</tr>
+				</table>
+				<div>
+					<img alt="" th:src="'/images/no-content.png'">
+					<div>Danh sách dịch vụ trống!</div>
+				</div>
+			</div>
+
+			<div th:unless="${services.size == 0}">
+				<table>
+					<tr>
+						<th>No.</th>
+						<th>Tên dịch vụ</th>
+						<th>Giá cả</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr th:each="service:${services}">
+						<td class="textcenter" th:text="'#'+${service.id}"></td>
+						<td th:text="${service.name}"></td>
+						<td class="textright" th:text="${service.price}"></td>
+						
+						<td class="textcenter"><a
+							th:href="@{/admin/service/update/{id}(id=${service.id})}"><i
+								class="fa-solid fa-pen-to-square"></i></a>
+							<button 
+								th:onclick='confirmDelete("admin/service/delete/" + [[${service.id}]])'
+								title="Xóa dịch vụ">
+								<i class="fa-solid fa-trash"></i>
+							</button>
+							</td>
+					</tr>
+				</table>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+
+</html>

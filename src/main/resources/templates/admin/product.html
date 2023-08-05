@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+
+<body>
+
+	<div class="content" layout:fragment="content">
+		<h1>DANH SÁCH SẢN PHẨM</h1>
+		<div th:if="${session.message}">
+			<script th:inline="text">
+				showMessage("[[${session.message.text}]]",
+						"[[${session.message.state}]]");
+			</script>
+			<div th:text="${@session.removeSession()}"></div>
+		</div>
+		<div class="btn-container">
+			<div>
+				<a th:href="@{/admin/products}" class="btnadd">Tất cả</a>
+				<a th:href="@{/admin/products/1}" class="btnadd">Đã xóa</a>
+			</div>
+			<a th:href="@{/admin/product/add}" class="btnadd">Thêm mới</a>
+		</div>
+		<div th:if="${#lists.size(products) == 0}" class="no-content">
+			<div>
+				<img alt="" th:src="'/images/no-content.png'">
+			</div>
+			<div>Danh sách sản phấm trống!</div>
+		</div>
+		<div th:unless="${#lists.size(products) == 0}">
+			<table>
+				<tr>
+					<th>Mã</th>
+					<th>Tên sản phẩm</th>
+					<th>Hình ảnh</th>
+					<th>Giá</th>
+					<th>Thao tác</th>
+				</tr>
+
+				<tr th:each="product : ${products}">
+					<td class="textcenter" th:text="'#'+${product.id}"></td>
+					<td th:text="${product.name}"></td>
+					<td class="textcenter"><img alt=""
+						th:src="'/images/'+${product.image}"></td>
+					<td th:text="${product.sellPrice}">
+					</td>
+					<td class="textcenter"><a
+						th:href="@{/admin/product/update/{id}(id=${product.id})}"><i
+							class="fa-solid fa-pen-to-square"></i></a>
+						<button
+							th:onclick='confirmDelete("admin/product/delete/" + [[${product.id}]])'>
+							<i class="fa-solid fa-trash"></i>
+						</button></td>
+				</tr>
+			</table>
+			<div>
+				<ul class="pagination">
+					<li th:unless="${currentPage == 0}"><a
+						th:href="@{/products}?page=0">First</a></li>
+					<li th:unless="${currentPage == 0}"><a
+						th:href="@{/products}?page=${currentPage - 1}">Previous</a></li>
+					<li th:unless="${currentPage == totalPages - 1}"><a
+						th:href="@{/products}?page=${currentPage + 1}">Next</a></li>
+					<li th:unless="${currentPage == totalPages - 1}"><a
+						th:href="@{/products}?page=${totalPages - 1}">Last</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

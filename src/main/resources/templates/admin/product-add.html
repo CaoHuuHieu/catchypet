@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+	rel="stylesheet" />
+<style>
+p {
+	margin: 0;
+}
+</style>
+<title>Document</title>
+</head>
+
+<body>
+
+	<div class="content product_container" layout:fragment="content">
+<div th:if="${session.message}">
+			<script th:inline="text">
+				showMessage("[[${session.message.text}]]",
+						"[[${session.message.state}]]");
+			</script>
+			<div th:text="${@session.removeSession()}"></div>
+		</div>
+		<form  th:action="@{/admin/product/add}" th:object="${product}"
+			th:method="POST" enctype="multipart/form-data">
+			<h1 th:if="${product.id != null}">CẬP NHẬT SẢN PHẨM</h1>
+			<h1 th:if="${product.id == null}">THÊM MỚI SẢN PHẨM</h1>
+			<div class="form-input">
+				<p>Ảnh</p>
+				<input type="file" name="file" />
+				<!-- <input type="file" name="file" />
+				<input type="file" name="file" />
+				<input type="file" name="file" /> -->
+			</div>
+			<div class="form-input">
+				<p>Tên sản phẩm</p>
+				<input type="text" th:field="*{name}" />
+			</div>
+			<div class="form-input">
+				<p>Thương hiệu:</p>
+				<input type="text" th:field="*{brand}" />
+			</div>
+			<div class="form-input">
+				<p>Danh mục</p>
+				<select th:field="*{category}">
+					<option th:each="category1 : ${categories}"
+						th:value="${category1.id}" th:text="${category1.name}"></option>
+				</select>
+			</div>
+			<div class="form-input">
+				<p>Số lượng:</p>
+				<input type="text" th:field="*{quantity}" />
+			</div>
+			<div class="form-input">
+				<p>Giá trước khuyến mãi:</p>
+				<input type="text" th:field="*{defaultPrice}" />
+			</div>
+			
+			<div class="form-input">
+				<p>Giá bán:</p>
+				<input type="text" th:field="*{sellPrice}" />
+			</div>
+			<div class="form-input">
+				<p>Thể loại:</p>
+				<select th:field="*{type}">
+					<option value="0" >Sản phẩm</option>
+					<option value="1" >Phụ kiện</option>
+				</select>
+			</div>
+			<div>
+				<p>Mô tả</p>
+				<textarea rows="20" id="content" th:field="*{description}"
+					autocomplete="off"></textarea>
+			</div>
+			<div class="form-input">
+				<input type="hidden" th:field="*{id}" />
+			</div>
+			<div class="form-input button">
+				<a th:href="@{/admin/products}" class="cancel">Quay lại</a> <input
+					th:if="${product.id == null}" type="submit" value="Thêm mới" /> <input
+					th:unless="${product.id == null}" type="submit" value="Cập nhật" />
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

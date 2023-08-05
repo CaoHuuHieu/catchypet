@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+
+<body>
+
+	<div class="content" layout:fragment="content">
+		<div class="account">
+			<div th:if="${session.message}">
+				<script th:inline="text">
+					showMessage("[[${session.message.text}]]",
+							"[[${session.message.state}]]");
+				</script>
+				<div th:text="${@session.removeSession()}"></div>
+			</div>
+			<h1>DANH SÁCH TÀI KHOẢN</h1>
+			<div class="btn-container">
+				<a th:href="@{/admin/account/add}" class="btnadd">Thêm mới</a>
+			</div>
+			<div>
+				<p>Tìm kiếm tài khoản</p>
+				<div class="search">
+
+					<form th:action="@{/admin/account/search}" method="get">
+						<div class="form-input">
+							<input type="text" placeholder="Nhập email..." name="key">
+							<button type="submit">
+								<span> <i class="fa-solid fa-magnifying-glass"></i></span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div th:if="${users.size == 0}" class="no-content">
+				<table>
+						<tr>
+							<th>No</th>
+							<th>Thông tin khách hàng</th>
+							<th>Ngày tạo</th>
+							<th>Quyền</th>
+							<th>Thao tác</th>
+						</tr>
+					</table>
+				<div>
+					<img alt="" th:src="'/images/no-content.png'">
+						<div>Danh sách tài khoản trống!</div>
+				</div>
+			</div>
+			<div th:unless="${users.size == 0}">
+
+				<table>
+					<tr>
+						<th>No</th>
+						<th>Thông tin khách hàng</th>
+						<th>Ngày tạo</th>
+						<th>Quyền</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr th:each="user : ${users}">
+						<td class="textcenter" th:text="'#'+${user.id}"></td>
+						<td>
+							<p>
+								<strong th:text="${user.fullName}"></strong>
+							</p>
+							<p th:text="${user.username}"></p>
+						</td>
+						<td class="textright" th:text="${user.createDate}"></td>
+						<td class="textcenter" th:text="${user.role}"></td>
+						<td class="textcenter"><a
+							th:href="@{/admin/account/update/{id}(id=${user.id})}"><i
+								class="fa-solid fa-pen-to-square"></i></a>
+							<button th:if="${user.status == 0}"
+								th:onclick='confirmLockAccount("admin/account/lock/" + [[${user.id}]])'
+								title="Khóa tài khoản">
+								<i class="fa-solid fa-lock"></i>
+							</button>
+							<button th:unless="${user.status == 0}"
+								th:onclick='confirmUnlockAccount("admin/account/unlock/" + [[${user.id}]])'
+								title="Mở khóa tài khoản">
+								<i class="fa-solid fa-unlock"></i>
+							</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

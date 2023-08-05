@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"
+
+xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+ 
+    <main class="main" layout:fragment="content">
+      <div class="container">
+        <div class="user-container">
+          <div class="user-left">
+            <h4>TRANG TÀI KHOẢN</h4>
+            <p>
+              <strong>Xin chào, <span class="name">Lee Minh Hoo</span>!</strong>
+            </p>
+            <div class="user-link">
+              <a href="#">Thông tin tài khoản</a>
+              <a href="#">Đơn hàng của bạn</a>
+              <a href="#">Đổi mật khẩu</a>
+              <a href="#">Số địa chỉ</a>
+            </div>
+          </div>
+          <div class="user-right orderdetail">
+            <div class="secsion1">
+              <p>Chi tiết đơn hàng <span>#1234</span></p>
+              <p>Ngày tạo <span>02/06/2023</span></p>
+            </div>
+            <div class="secsion2">
+              <p>
+                Trạng thái thanh toán:
+                <span class="status1">Chưa thanh toán</span>
+              </p>
+              <p>
+                Trạng thái vận chuyển:
+                <span class="status2">Chưa giao hàng</span>
+              </p>
+            </div>
+
+            <div class="section3">
+              <div>
+                <h6>ĐỊA CHỈ GIAO HÀNG</h6>
+                <div class="border container1">
+                  <p><strong>LEE MINH HOO</strong></p>
+                  <p>
+                    Địa chỉ:
+                    <span
+                      >Trà Liên Đông, Triệu Giang, Triệu Phong, Quảng Trị</span
+                    >
+                  </p>
+                  <p>Số điện thoại: +8443243243</p>
+                </div>
+              </div>
+              <div>
+                <h6>THANH TOÁN</h6>
+                <div class="border container2">Thanh toán khi giao hàng</div>
+              </div>
+              <div>
+                <h6>GHI CHÚ</h6>
+                <div class="border container3">Ghi chú cho đơn hàng</div>
+              </div>
+            </div>
+            <div class="section4">
+              <table>
+                <tr>
+                  <th>Sản phẩm</th>
+                  <th>Đơn giá</th>
+                  <th>Số lượng</th>
+                  <th>Tổng</th>
+                </tr>
+                <tr>
+                  <td class="product_detail">
+                    <div class="img">
+                      <img
+                        src="https://bizweb.dktcdn.net/thumb/small/100/432/370/products/7.png?v=1626427370393"
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <p>Thức ăn dạng hạt cao cấp Smartheart</p>
+                      <p>300gr/Nhỏ</p>
+                    </div>
+                  </td>
+
+                  <td class="product-number">30.000đ</td>
+                  <td class="product-number">2</td>
+                  <td class="product-number">60.000đ</td>
+                </tr>
+              </table>
+              <div>
+                <table class="total">
+                  <tr>
+                    <td>Phí vận chuyển</td>
+                    <td><span class=""> 40.000đ</span>(Giao hàng tận nơi)</td>
+                  </tr>
+                  <tr>
+                    <td>Tổng tiền</td>
+                    <td class="total_money">360.000đ</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

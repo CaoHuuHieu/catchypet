@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+
+<body>
+
+	<main class="main" layout:fragment="content">
+	<div th:if="${session.message}">
+				<script th:inline="text">
+					showMessage("[[${session.message.text}]]",
+							"[[${session.message.state}]]");
+				</script>
+				<div th:text="${@session.removeSession()}"></div>
+			</div>
+		<div class="container">
+		
+			<div class="contact">
+				<h4 class="heading">LIÊN HỆ</h4>
+				<div class="contact-top">
+					<div class="contact-item">
+						<i class="fa-solid fa-phone blue"></i>
+						<h6>Hổ trợ tư vấn</h6>
+						<p th:text = "${storeInfor.phone}"></p>
+					</div>
+					<div class="contact-item">
+						<i class="fa-sharp fa-solid fa-map-location-dot orange"></i>
+						<h6>Văn phòng giao dịch</h6>
+						<p th:text = "${storeInfor.address}"></p>
+					</div>
+					<div class="contact-item">
+						<i class="fa-solid fa-envelope red"></i>
+						<h6>Bộ phận hỗ trợ bán hàng</h6>
+						<p th:text = "${storeInfor.email}"></p>
+					</div>
+				</div>
+				<div class="contact-main">
+					<div class="map">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1959.8764002654043!2d106.6733294!3d10.7535252!3m2!1i1024!2i768! 4f13.1!3m3!1m2!1s0x31752efc2fa97409%3A0x54da553142caa729!2zOTMxIMSQxrDhu51uZyB UcuG6p24gSMawbmcgxJDhuqFvLCBQaMaw4budbmcgNywgUXXhuq1uIDUsIEjhu5MgQ2jDr SBNaW5o!5e0!3m2!1svi!2s!4v1545088896955"
+							width="600" height="450" frameborder="0" style="border: 0"
+							allowfullscreen></iframe>
+					</div>
+					<div class="contact-form">
+						<form th:action="@{/contact}" th:method="post" th:object="${contact}">
+							<div class="form-input">
+								<input type="text" placeholder="Họ tên" th:field="*{name}"> <i
+									class="fa-solid fa-user"></i>
+							</div>
+							<div class="form-input">
+								<input type="text" placeholder="Số điện thoại" th:field="*{phone}"> <i
+									class="fa-solid fa-phone"></i>
+							</div>
+
+							<div class="form-input">
+								<input type="text" placeholder="Email" th:field="*{email}"> <i
+									class="fa-solid fa-envelope"></i>
+							</div>
+							<div class="form-row">
+								<div class="form-input">
+									<textarea placeholder="Nội dung" th:field="*{content}"></textarea>
+									<i class="fa-solid fa-comment"></i>
+								</div>
+							</div>
+							<div class="form-input">
+								<input type="submit" value="Liên hệ">
+							</div>
+						</form>
+
+						<div class="banner">
+							<img
+								src="https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/banner_contact.png?1676276556806"
+								alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+</body>
+
+</html>

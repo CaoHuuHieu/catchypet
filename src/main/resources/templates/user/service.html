@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <main class="main" layout:fragment="content">
+        <div class="container">
+            <h4 class="heading">BẢNG GIÁ</h4>
+            <div class="price-list">
+
+                <div>
+                    <div class="title-modul-main">
+                        <h2>Chăm Sóc Thú Cưng</h2>
+                        <span><img src="https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/bg-title.png?1665454509075" alt=""></span>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="price-item" th:each="service:${services}">
+                                <span><i class="fa-solid fa-paw">  </i> <span th:text = "${service.name}"></span></span>
+                                <span class="item-price" th:text="${#numbers.formatDecimal(service.price, 0, 'POINT', 0, 'COMMA')} + ' VND'"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="image"><img src="https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/banner_price.png?1676276556806" alt=""></div>
+        </div>
+
+    </main>
+
+   
+
+</html>

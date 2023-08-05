@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <title>Document</title>
+  </head>
+
+  <body>
+   
+    <main class="main" layout:fragment="content">
+      <div class="container">
+        <div class="cartpage">
+          <h4 class="heading">GIỎ HÀNG CỦA BẠN</h4>
+          <table>
+            <tr>
+              <th>Ảnh sản phẩm</th>
+              <th>Tên sản phẩm</th>
+              <th>Đơn giá</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+              <th>Xóa</th>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  src="https://bizweb.dktcdn.net/thumb/compact/100/432/370/products/7.png"
+                  alt=""
+                />
+              </td>
+              <td>Thức ăn dạng hat cao cấp Smartheart</td>
+              <td class="price">30.000đ</td>
+              <td>
+                <span><i class="fa-solid fa-minus"></i></span><span>30</span
+                ><span><i class="fa-sharp fa-solid fa-plus"></i></span>
+              </td>
+              <td class="price">30.000đ</td>
+              <td><i class="fa-solid fa-trash trash"></i></td>
+            </tr>
+          </table>
+          <div class="cart-bottom">
+            <div>
+              <a href="#" class="btn">Tiếp tục mua hàng</a>
+            </div>
+            <div>
+              <p>Tổng tiền thành toán: <span class="price">30.000đ</span></p>
+              <div><a href="#" class="btn buy">Tiến hành thanh toán</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  
+  </body>
+</html>

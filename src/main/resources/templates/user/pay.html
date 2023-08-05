@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<title>Document</title>
+</head>
+
+<body>
+	<main class="paycontainer" layout:fragment="content">
+		<div class="container paypage">
+			<div class="paypage-top">
+				<p>
+					<a href="#">Quay lại giỏ hàng</a>
+				</p>
+				<h1>ĐẶT HÀNG</h1>
+			</div>
+
+
+			<div class="receiver_infor">
+				<h4>Thông tin nhận hàng</h4>
+
+				<div class="form-input">
+					<p>Sổ địa chỉ</p>
+					<select name="cars" id="cars">
+						<option value="mercedes">Địa chỉ khác...</option>
+						<option value="audi">Audi</option>
+					</select>
+				</div>
+				<div class="form-input">
+					<p>Email</p>
+					<input type="text" />
+				</div>
+				<div class="form-input">
+					<p>Họ và tên</p>
+					<input type="text" />
+				</div>
+				<div class="form-input">
+					<p>Số điện thoại</p>
+					<input type="text" />
+				</div>
+				<div class="form-input">
+					<p>Địa chỉ cụ thể</p>
+					<input type="text" />
+				</div>
+
+				<div class="form-input">
+					<p>Tỉnh thành</p>
+					<select name="cars" id="cars">
+						<option value="mercedes">Mercedes</option>
+						<option value="audi">Audi</option>
+					</select>
+				</div>
+				<div class="form-input">
+					<p>Quận huyện</p>
+					<select name="cars" id="cars">
+						<option value="mercedes">Mercedes</option>
+						<option value="audi">Audi</option>
+					</select>
+				</div>
+				<div class="form-input">
+					<p>Phường xã</p>
+					<select name="cars" id="cars">
+						<option value="mercedes">Mercedes</option>
+						<option value="audi">Audi</option>
+					</select>
+				</div>
+
+				<div class="form-input">
+					<p>Ghi chú</p>
+					<textarea></textarea>
+				</div>
+			</div>
+			<div class="payment_method">
+				<h4>Vận chuyển</h4>
+				<div class="form-input">
+					<input type="radio" id="html" name="method_trasport" value="HTML" />
+					<label for="html" class=""><span>Giao
+							hàng tận nơi</span><span>40.000đ</span></label>
+				</div>
+				<h4>Thanh toán</h4>
+				<div class="form-input">
+					<input type="radio" id="html" name="method_pay" value="HTML" /> <label
+						for="html" class=""><span>Thanh
+							toán khi nhận hàng</span><span><i class="fa-solid fa-money-bill"></i></span></label>
+				</div>
+			</div>
+			<div class="product_info">
+				<h4>
+					Đơn hàng(<span>2</span> sản phẩm)
+				</h4>
+				<div class="productlist">
+					<div class="productitem">
+						<div class="product-detail">
+							<div class="img">
+								<img
+									src="https://bizweb.dktcdn.net/thumb/thumb/100/432/370/products/26.png?v=1626490790120"
+									alt="" /> <span class="amount">2</span>
+							</div>
+							<div>
+								<p>Thức ăn dạng hạt cao cấp</p>
+
+								<p class="category">300g/Nhỏ</p>
+							</div>
+						</div>
+						<p class="price">30.000đ</p>
+					</div>
+					<div class="productitem">
+						<div class="product-detail">
+							<div class="img">
+								<img
+									src="https://bizweb.dktcdn.net/thumb/thumb/100/432/370/products/26.png?v=1626490790120"
+									alt="" /> <span class="amount">2</span>
+							</div>
+							<div>
+								<p>Thức ăn dạng hạt cao cấp</p>
+
+								<p class="category">300g/Nhỏ</p>
+							</div>
+						</div>
+						<p class="price">30.000đ</p>
+					</div>
+				</div>
+				<div class="order_money">
+					<div class="order_money_detail">
+						<span>Tạm tính</span><span class="price">160.000đ</span>
+					</div>
+					<div class="order_money_detail">
+						<span>Phí vận chuyên</span><span class="price">40.000đ</span>
+					</div>
+				</div>
+				<div class="total_order order_money_detail">
+					<span>Tổng cộng</span> <span class="price">200.000đ</span>
+				</div>
+				<div class="button">
+					<input type="submit" class="btnadd" value="Đặt hàng" />
+				</div>
+			</div>
+		</div>
+	</main>
+
+</body>
+</html>

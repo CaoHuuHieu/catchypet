@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Document</title>
+</head>
+
+<body>
+
+	<main class="main" layout:fragment="content">
+		<div class="container">
+		<div th:if="${session.message}">
+				<script th:inline="text">
+					showMessage("[[${session.message.text}]]",
+							"[[${session.message.state}]]");
+				</script>
+				<div th:text="${@session.removeSession()}"></div>
+			</div>
+			<div class="booking">
+				<div class="booking-desc">
+					<h4 class="heading">ĐẶT LỊCH</h4>
+					<p>Nếu bạn là một người nuôi thú cưng nhưng có công việc rất
+						bận rộn thì việc đưa thú cưng đến các cơ sở chăm sóc thú cưng là
+						một giải pháp rất hữu ích. Với dịch vụ trọn gói cùng các nhân viên
+						chuyên nghiệp sẽ giúp bạn chăm sóc thú cưng một cách dễ dàng.</p>
+				</div>
+				<div class="bookingflex">
+					<div class="booking-left">
+						<form th:action="@{/booking}" th:method="post" th:object="${booking}">
+							<div class="form-row">
+								<div class="form-input">
+									<input type="text" placeholder="Họ tên" th:field="*{name}"> <i
+										class="fa-solid fa-user"></i>
+								</div>
+								<div class="form-input">
+									<input type="text" placeholder="Số điện thoại" th:field="*{phone}"> <i
+										class="fa-solid fa-phone"></i>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-input">
+									<input type="text" placeholder="Email" th:field="*{email}"> <i
+										class="fa-solid fa-envelope"></i>
+								</div>
+								<div class="form-input">
+									<input type="text" placeholder="Chủ đề" th:field="*{subject}"> <i
+										class="fa-solid fa-book"></i>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-input">
+									<textarea placeholder="Nội dung" th:field="*{content}"></textarea>
+									<i class="fa-solid fa-comment"></i>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-input">
+									<input type="submit" value="Đặt lịch">
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="booking-right">
+						<img
+							src="https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/banner_booking.png?1676276556806"
+							alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+</html>

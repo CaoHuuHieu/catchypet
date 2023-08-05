@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://kit.fontawesome.com/8deb314de0.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="admin.css" />
+<title>Document</title>
+</head>
+
+<body>
+
+	<div class="content" layout:fragment="content">
+		<div class="orderadmin">
+			<h1>DANH SÁCH ĐƠN HÀNG</h1>
+			<div class="type_link">
+				<a href="#">Tất cả</a> <a href="#">Đơn hàng mới</a> <a href="#">Đang
+					vận chuyển</a> <a href="#">Đã giao</a> <a href="#">Đã hủy</a>
+			</div>
+
+			<div>
+				<table>
+					<tr>
+						<th>No.</th>
+						<th>Thông tin người nhận</th>
+						<th>Thông tin đơn hàng</th>
+						<th>Trang thái</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr>
+						<td class="textcenter">#00001</td>
+						<td>
+							<p>
+								<strong>Cao Hữu Hiếu</strong>
+							</p>
+							<p>Trà Liên Đông, Triệu Giang, Triệu Phong, Quảng Trị</p>
+							<p>093214354354</p>
+							<p>caohuuhieu12b8@gmail.com</p>
+						</td>
+						<td>
+							<p>
+								Phí vận chuyển: <span>20.000đ</span>
+							</p>
+							<p>
+								Tổng thành tiền: <span>100.000đ</span>
+							</p>
+							<p>Thanh toán khi nhận hàng</p>
+						</td>
+						<td class="textcenter">Đang vận chuyển</td>
+						<td class="textcenter"><a href="#"> <i
+								class="fa-solid fa-list"></i>
+						</a> <a href="#"><i class="fa-solid fa-ban"></i></a> <a href="#"><i
+								class="fa-solid fa-arrow-right"></i></a></td>
+					</tr>
+					<tr>
+						<td class="textcenter">#00001</td>
+						<td>
+							<p>
+								<strong>Cao Hữu Hiếu</strong>
+							</p>
+							<p>Trà Liên Đông, Triệu Giang, Triệu Phong, Quảng Trị</p>
+							<p>093214354354</p>
+							<p>caohuuhieu12b8@gmail.com</p>
+						</td>
+						<td>
+							<p>
+								Phí vận chuyển: <span>20.000đ</span>
+							</p>
+							<p>
+								Tổng thành tiền: <span>100.000đ</span>
+							</p>
+							<p>Thanh toán khi nhận hàng</p>
+						</td>
+						<td class="textcenter">Đang vận chuyển</td>
+						<td class="textcenter"><a href="#"> <i
+								class="fa-solid fa-list"></i>
+						</a> <a href="#"><i class="fa-solid fa-ban"></i></a> <a href="#"><i
+								class="fa-solid fa-arrow-right"></i></a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

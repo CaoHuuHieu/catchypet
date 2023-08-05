@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+
+<body>
+	<div class="content" layout:fragment="content">
+		<div class="account">
+			<h1>DANH SÁCH BÀI VIẾT</h1>
+			<div class="btn-container">
+				<a th:href="@{/admin/new/add}" class="btnadd">Thêm mới</a>
+			</div>
+			
+			<div th:if="${news.size == 0}" class="no-content">
+				<table>
+						<tr>
+						<th>No</th>
+						<th>Tiêu đề</th>
+						<th>Ngày tạo</th>
+						<th>Thao tác</th>
+					</tr>
+					</table>
+				<div>
+					<img alt="" th:src="'/images/no-content.png'">
+						<div>Danh sách bài viết trống!</div>
+				</div>
+			</div>
+			<div th:unless="${news.size == 0}">
+
+				<table>
+						<tr>
+						<th>No</th>
+						<th>Tiêu đề</th>
+						<th>Ngày tạo</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr th:each="new1 : ${news}">
+						<td class="textcenter" th:text="'#'+${new1.id}"></td>
+						<td th:text="${new1.heading}">Cách tắm cho chó mà không dùng nước</td>
+						<td class="textright" th:text="${new1.createDate}"></td>
+					
+						<td class="textcenter"><a
+					th:href="@{/admin/new/update/{id}(id=${new1.id})}"><i
+						class="fa-solid fa-pen-to-square"></i></a><button
+					th:onclick='confirmDelete("admin/new/delete/" + [[${new1.id}]])'>
+						<i class="fa-solid fa-trash"></i>
+				</button></td>
+					</tr>
+				</table>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</body>
+
+</html>

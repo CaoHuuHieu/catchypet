@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+
+<body>
+
+	<div class="content" layout:fragment="content">
+		<div class="account">
+		<div th:if="${session.message}">
+			<script th:inline="text">
+				showMessage("[[${session.message.text}]]",
+						"[[${session.message.state}]]");
+			</script>
+			<div th:text="${@session.removeSession()}"></div>
+	</div>
+			<form th:action="@{/admin/account}" th:method="post"
+				th:object="${account}">
+				<h1 th:if="${account.id == null}">THÊM MỚI TÀI KHOẢN</h1>
+				<h1 th:unless="${account.id == null}">CẬP NHẬT TÀI KHOẢN</h1>
+				<div class="form-input">
+					<p>Họ và tên</p>
+					<input type="text" th:field="*{fullName}" />
+				</div>
+				<div class="form-input">
+					<p>Email</p>
+					<input type="text" th:field="*{username}" />
+				</div>
+				<div class="form-input">
+					<p>Mật khẩu</p>
+					<input type="password" th:field="*{password}" />
+				</div>
+				<div class="form-input">
+					<p>Quyền</p>
+					<select th:field="*{role}">
+						<option value="Admin">Quản trị viên</option>
+						<option value="User">Khách hàng</option>
+					</select>
+				</div>
+				<div>
+					<input type="hidden" th:field="*{id}" />
+				</div>
+				<div class="form-input button">
+					<a th:href="@{/admin/account}" class="cancel">Quay lại</a> <input
+						th:if="${account.id == null}" type="submit" value="Thêm mới" /> <input
+						th:unless="${account.id == null}" type="submit" value="Cập nhật" />
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

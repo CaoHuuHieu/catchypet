@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin}">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+
+<body>
+
+	<div class="content" layout:fragment="content">
+		<div class="service">
+		<div th:if="${session.message}">
+				<script th:inline="text">
+					showMessage("[[${session.message.text}]]",
+							"[[${session.message.state}]]");
+				</script>
+				<div th:text="${@session.removeSession()}"></div>
+			</div>
+			<h1>THÊM MỚI DỊCH VỤ</h1>
+			<form th:action="@{/admin/service/add}" th:method="post" th:object="${service}">
+				<div class="form-input">
+					<p>Tên dịch vụ</p>
+					<input type="text"  th:field="*{name}"/>
+				</div>
+				<input type="hidden" th:field="*{id}" />
+				<div class="form-input">
+					<p>Phí dịch vụ</p>
+					<input type="text" th:field="*{price}" />
+				</div>
+				<div class="form-input">
+					<input type="submit" value="Thêm mới dịch vụ" />
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

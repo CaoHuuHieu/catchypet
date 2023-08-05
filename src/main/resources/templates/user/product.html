@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="main" layout:fragment="content">
+        <div class="container flex-between">
+            <div class="main-left">
+                <div class="main-category">
+                    <h4>DANH MỤC SẢN PHẨM</h4>
+                    <ul>
+                        <li>
+                            <a href="#">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="#">Sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="#">Bảng giá</a>
+                        </li>
+                        <li>
+                            <a href="#">Tin thú cưng</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Đặt lịch</a>
+                        </li>
+                        <li>
+                            <a href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="main-trademark">
+                    <h4>CHỌN THƯƠNG HIỆU</h4>
+                    <ul>
+                        <div class="search">
+                            <input type="text" placeholder="Bạn muốn tìm gì?">
+                            <Button><i class="fa-solid fa-magnifying-glass"></i></Button>
+                        </div>
+                        <div class="tradamark-list">
+                            <li>
+                                <input type="checkbox" name="volvol" value="0">
+                                <label for="volvol">Vol val</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="volvol" value="0">
+                                <label for="volvol">Vol val</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="volvol" value="0">
+                                <label for="volvol">Vol val</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="volvol" value="0">
+                                <label for="volvol">Vol val</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="volvol" value="0">
+                                <label for="volvol">Vol val</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="volvol" value="0">
+                                <label for="volvol">Vol val</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="volvol" value="0">
+                                <label for="volvol">Vol val</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="volvol" value="0">
+                                <label for="volvol">Vol val</label>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="main-price">
+                    <h4>KHOẢNG GIÁ</h4>
+                    <div class="wrapper">
+                        <div class="values flex-between">
+                            <span id="range1">
+                              0đ
+                          </span>
+                            <span class="dash"> &dash; </span>
+                            <span id="range2">
+                              100đ
+                          </span>
+                        </div>
+                        <div class="range-container">
+                            <div class="slider-track"></div>
+                            <input type="range" min="0" max="10000000" value="0" id="slider-1" oninput="slideOne()">
+                            <input type="range" min="0" max="10000000" value="10000000" id="slider-2" oninput="slideTwo()">
+                        </div>
+                    </div>
+                    <button> Lọc giá</button>
+                </div>
+                <div>
+                    <img src="https://bizweb.dktcdn.net/100/432/370/themes/894869/assets/banner_collection.png?1676276556806" alt="">
+                </div>
+            </div>
+
+            <div class="main-right">
+                <h4>TẤT CẢ SẢN PHẨM</h4>
+                <div class="select-container">
+                    <select name="sort" id="sort">
+                  <option value="default">Mặc định</option>
+                  <option value="atoz">A --> Z</option>
+                  <option value="ztoa">Z --> A</option>
+                  <option value="pricedecrese">Giá tăng dần</option>
+                  <option value="pricedecrese">Giá giảm dần</option>
+                </select>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+ <script type="text/javascript" th:src="@{/js/rangeslide.js}"></script>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:layout="httml://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/user}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <main class="main" layout:fragment="content">
+      <div class="container">
+        <div class="register">
+          <h4 class="heading">THÔNG TIN ĐĂNG KÝ</h4>
+          <form action="">
+            <div class="form-input">
+              <p>Họ và Tên<span>*</span></p>
+              <input type="text" placeholder="Họ và tên" />
+            </div>
+            <div class="form-input">
+              <p>Số điện thoại<span>*</span></p>
+              <input type="text" placeholder="Số điện thoại" />
+            </div>
+            <div class="form-input">
+              <p>Email<span>*</span></p>
+              <input type="text" placeholder="Email" />
+            </div>
+            <div class="form-input">
+              <p>Mật khẩu<span>*</span></p>
+              <input type="text" placeholder="Mật khẩu" />
+            </div>
+            <div class="form-input">
+              <input type="submit" value="Đăng ký" />
+            </div>
+          </form>
+          <p class="login-link">
+            Bạn đã có tài khoản?
+            <span><a href="#">Đăng nhập tại đây</a></span>
+          </p>
+          <p>Hoặc đăng nhập bằng</p>
+          <div class="btn-social">
+            <a href="#" class="fb">
+              <i class="fa-brands fa-facebook"></i>Faceboook
+            </a>
+
+            <a href="" class="gg">
+              <i class="fa-brands fa-google"></i>Google
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
